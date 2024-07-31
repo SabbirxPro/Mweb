@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Telegram Webapp</title>
+</head>
+<body>
+    <h1>Links Pasted:</h1>
+    <div id="links"></div>
+    <script>
+        window.onload = function() {
+            const params = new URLSearchParams(window.location.search);
+            const link1 = params.get('link1');
+            const link2 = params.get('link2');
+            const content = document.getElementById('links');
+            if (link1 && link2) {
+                content.innerHTML = `<a href="${link1}">${link1}</a><br><a href="${link2}">${link2}</a>`;
+            } else {
+                content.textContent = 'No links provided.';
+            }
+        };
+    </script>
+</body>
+</html>
